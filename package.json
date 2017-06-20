@@ -1,0 +1,38 @@
+{
+  "name": "@colmena/colmena-api-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gen:admin": "./node_modules/.bin/compodoc -p ../colmena/apps/admin/src/tsconfig.app.json -d ./docs/admin/",
+    "gen:admin-dev": "./node_modules/.bin/compodoc -p ../colmena/modules/admin/dev/tsconfig.json -d ./docs/admin-dev/",
+    "gen:admin-content": "./node_modules/.bin/compodoc -p ../colmena/modules/admin/content/tsconfig.json -d ./docs/admin-content/",
+    "gen:admin-dashboard": "./node_modules/.bin/compodoc -p ../colmena/modules/admin/dashboard/tsconfig.json -d ./docs/admin-dashboard/",
+    "gen:admin-data-browser": "./node_modules/.bin/compodoc -p ../colmena/modules/admin/data-browser/tsconfig.json -d ./docs/admin-data-browser/",
+    "gen:admin-storage": "./node_modules/.bin/compodoc -p ../colmena/modules/admin/storage/tsconfig.json -d ./docs/admin-storage/",
+    "gen:admin-system": "./node_modules/.bin/compodoc -p ../colmena/modules/admin/system/tsconfig.json -d ./docs/admin-system/",
+    "gen:admin-layout": "./node_modules/.bin/compodoc -p ../colmena/packages/admin-layout/tsconfig.json -d ./docs/admin-layout/",
+    "gen:admin-lb-sdk": "./node_modules/.bin/compodoc -p ../colmena/packages/admin-lb-sdk/tsconfig.json -d ./docs/admin-lb-sdk/",
+    "gen:admin-ui": "./node_modules/.bin/compodoc -p ../colmena/packages/admin-ui/tsconfig.json -d ./docs/admin-ui/",
+    "generate": "npm run generate:apps && npm run generate:modules && npm run generate:packages",
+    "generate:apps": "npm run gen:admin",
+    "generate:modules": "npm run gen:admin-dev && npm run gen:admin-content && npm run gen:admin-dashboard && npm run gen:admin-data-browser && npm run gen:admin-storage && npm run gen:admin-system",
+    "generate:packages": "npm run gen:admin-layout && npm run gen:admin-lb-sdk && npm run gen:admin-ui",
+    "serve": "live-server ./docs/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colmena/colmena-api-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colmena/colmena-api-docs/issues"
+  },
+  "homepage": "https://github.com/colmena/colmena-api-docs#readme",
+  "dependencies": {
+    "@compodoc/compodoc": "^1.0.0-beta.10",
+    "live-server": "^1.2.0"
+  }
+}
